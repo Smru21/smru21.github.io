@@ -443,9 +443,11 @@ JOURNEY
 
     width:100%;
 
-    height:520px;
+    height:380px;
 
-    object-fit:cover;
+    object-fit:contain;
+
+    background:white;
 
     display:block;
 
