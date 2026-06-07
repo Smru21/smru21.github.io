@@ -1,131 +1,143 @@
-/* ===================================
-   NAVBAR SCROLL EFFECT
-=================================== */
+/* =========================================
+   REVEAL ANIMATIONS
+========================================= */
 
-const navbar = document.querySelector('.navbar');
+const reveals = document.querySelectorAll(
+".journey-row, .project-card, .pillar-card, .gallery-grid img, .vision-content"
+);
 
-window.addEventListener('scroll', () => {
+const revealObserver = new IntersectionObserver(
 
-    if (window.scrollY > 50) {
+(entries) => {
 
-        navbar.style.background =
-            'rgba(246,242,232,0.96)';
+    entries.forEach(entry => {
 
-        navbar.style.boxShadow =
-            '0 4px 20px rgba(0,0,0,0.08)';
+        if(entry.isIntersecting){
 
-    } else {
+            entry.target.classList.add("reveal");
+            entry.target.classList.add("active");
 
-        navbar.style.background =
-            'rgba(246,242,232,0.85)';
+        }
 
-        navbar.style.boxShadow =
-            'none';
-    }
-});
+    });
 
+},
 
-/* ===================================
-   FADE-IN ON SCROLL
-=================================== */
-
-const observer = new IntersectionObserver(
-
-    (entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add('show');
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
+{
+    threshold:0.15
+}
 
 );
 
+reveals.forEach(item => {
 
-const animatedElements = document.querySelectorAll(
-    '.timeline-item, .pillar-card, .focus-card, .project-wrapper'
-);
+    item.classList.add("reveal");
+    revealObserver.observe(item);
 
-animatedElements.forEach(el => {
-    observer.observe(el);
 });
 
+/* =========================================
+   LIGHTBOX GALLERY
+========================================= */
 
-/* ===================================
-   LIGHTBOX FOR ALL IMAGES
-=================================== */
+const galleryImages =
+document.querySelectorAll(".gallery-grid img");
 
-const images = document.querySelectorAll('img');
+const lightbox =
+document.createElement("div");
 
-const lightbox = document.createElement('div');
+lightbox.classList.add("lightbox");
 
-lightbox.id = 'lightbox';
+lightbox.innerHTML =
+`<img src="" alt="">`;
 
 document.body.appendChild(lightbox);
 
+const lightboxImage =
+lightbox.querySelector("img");
 
-images.forEach(image => {
+galleryImages.forEach(image => {
 
-    image.addEventListener('click', () => {
+    image.addEventListener("click", () => {
 
-        lightbox.classList.add('active');
+        lightbox.classList.add("active");
 
-        const img = document.createElement('img');
-
-        img.src = image.src;
-
-        while (lightbox.firstChild) {
-            lightbox.removeChild(lightbox.firstChild);
-        }
-
-        lightbox.appendChild(img);
+        lightboxImage.src = image.src;
 
     });
 
 });
 
+lightbox.addEventListener("click", () => {
 
-lightbox.addEventListener('click', () => {
-
-    lightbox.classList.remove('active');
+    lightbox.classList.remove("active");
 
 });
 
+/* =========================================
+   NAVBAR SCROLL EFFECT
+========================================= */
 
-/* ===================================
-   ACTIVE NAV LINK
-=================================== */
+const navbar =
+document.querySelector(".navbar");
 
-const sections = document.querySelectorAll('section');
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 80){
+
+        navbar.style.boxShadow =
+        "0 10px 30px rgba(0,0,0,0.08)";
+
+    }
+
+    else{
+
+        navbar.style.boxShadow = "none";
+
+    }
+
+});
+
+/* =========================================
+   PARALLAX BACKGROUND
+========================================= */
+
+const bg =
+document.querySelector(".bg-layer");
+
+window.addEventListener("scroll", () => {
+
+    const y =
+    window.pageYOffset;
+
+    bg.style.transform =
+    `translateY(${y * 0.08}px)`;
+
+});
+
+/* =========================================
+   ACTIVE NAVIGATION LINKS
+========================================= */
+
+const sections =
+document.querySelectorAll("section");
 
 const navLinks =
-    document.querySelectorAll('.navbar a');
+document.querySelectorAll(".navbar a");
 
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
 
-    let current = '';
+    let current = "";
 
     sections.forEach(section => {
 
         const sectionTop =
-            section.offsetTop - 120;
+        section.offsetTop - 150;
 
-        const sectionHeight =
-            section.clientHeight;
+        if(window.scrollY >= sectionTop){
 
-        if (window.scrollY >= sectionTop) {
-
-            current = section.getAttribute('id');
+            current =
+            section.getAttribute("id");
 
         }
 
@@ -133,14 +145,15 @@ window.addEventListener('scroll', () => {
 
     navLinks.forEach(link => {
 
-        link.classList.remove('active');
+        link.classList.remove("active");
 
-        if (
-            link.getAttribute('href') ===
-            `#${current}`
-        ) {
+        if(
+            link.getAttribute("href")
+            ===
+            "#" + current
+        ){
 
-            link.classList.add('active');
+            link.classList.add("active");
 
         }
 
@@ -148,105 +161,80 @@ window.addEventListener('scroll', () => {
 
 });
 
+/* =========================================
+   HERO IMAGE FLOAT EFFECT
+========================================= */
 
-/* ===================================
-   HERO PARALLAX
-=================================== */
+const heroImage =
+document.querySelector(".hero-image img");
 
-window.addEventListener('scroll', () => {
+if(heroImage){
 
-    const heroImage =
-        document.querySelector('.hero-image img');
+    let direction = 1;
 
-    if (!heroImage) return;
+    setInterval(() => {
 
-    const offset =
-        window.scrollY * 0.08;
+        heroImage.style.transform =
+        `translateY(${direction * 8}px)`;
 
-    heroImage.style.transform =
-        `translateY(${offset}px)`;
+        direction *= -1;
 
-});
-
-
-/* ===================================
-   SMOOTH TIMELINE REVEAL
-=================================== */
-
-const timelineItems =
-    document.querySelectorAll('.timeline-item');
-
-timelineItems.forEach(item => {
-
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(40px)';
-
-});
-
-const timelineObserver =
-    new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = '1';
-
-                    entry.target.style.transform =
-                        'translateY(0)';
-
-                    entry.target.style.transition =
-                        'all 0.8s ease';
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.2
-        }
-
-    );
-
-timelineItems.forEach(item => {
-    timelineObserver.observe(item);
-});
-
-
-/* ===================================
-   TYPEWRITER HERO EFFECT
-=================================== */
-
-const title = document.querySelector('.hero h2');
-
-if (title) {
-
-    const text = title.textContent;
-
-    title.textContent = '';
-
-    let index = 0;
-
-    function typeWriter() {
-
-        if (index < text.length) {
-
-            title.textContent += text.charAt(index);
-
-            index++;
-
-            setTimeout(typeWriter, 35);
-
-        }
-
-    }
-
-    setTimeout(typeWriter, 500);
+    }, 3000);
 
 }
 
+/* =========================================
+   GALLERY IMAGE STAGGER
+========================================= */
 
+galleryImages.forEach((img,index)=>{
+
+    img.style.animationDelay =
+    `${index * 0.05}s`;
+
+});
+
+/* =========================================
+   SMOOTH BUTTON HOVER
+========================================= */
+
+const buttons =
+document.querySelectorAll(
+".btn-primary, .btn-secondary"
+);
+
+buttons.forEach(btn => {
+
+    btn.addEventListener("mouseenter", () => {
+
+        btn.style.transform =
+        "translateY(-3px)";
+
+    });
+
+    btn.addEventListener("mouseleave", () => {
+
+        btn.style.transform =
+        "translateY(0px)";
+
+    });
+
+});
+
+/* =========================================
+   SUBTLE CIRCUIT MOVEMENT
+========================================= */
+
+const circuit =
+document.querySelector(".circuit-overlay");
+
+let offset = 0;
+
+setInterval(() => {
+
+    offset += 0.2;
+
+    circuit.style.backgroundPosition =
+    `${offset}px ${offset}px`;
+
+}, 50);
