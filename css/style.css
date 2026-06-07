@@ -548,4 +548,75 @@ section{
     }
 }
 
+/* ==========================
+   ANIMATIONS
+========================== */
+
+.pillar-card,
+.focus-card,
+.project-wrapper{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* ==========================
+   LIGHTBOX
+========================== */
+
+#lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.9);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+}
+
+#lightbox.active{
+    display:flex;
+}
+
+#lightbox img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:12px;
+}
+
+
+/* ==========================
+   ACTIVE NAV LINK
+========================== */
+
+.navbar a.active{
+
+    color:#355e3b;
+
+    font-weight:700;
+}
+
 
