@@ -876,3 +876,29 @@ RESPONSIVE
         font-size:2rem;
     }
 }
+
+/* ACTIVE NAV LINK */
+
+.navbar a.active{
+
+    color:#355E3B;
+
+    font-weight:700;
+}
+
+/* LIGHTBOX TRANSITION */
+
+.gallery-grid img{
+
+    transition:
+    transform .35s,
+    box-shadow .35s;
+}
+
+/* FLOATING HERO */
+
+.hero-image img{
+
+    transition:
+    transform 3s ease-in-out;
+}
