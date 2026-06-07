@@ -443,15 +443,9 @@ JOURNEY
 
     width:100%;
 
-    height:380px;
+    height:420px;
 
-    object-fit:contain;
-
-    background:white;
-
-    display:block;
-
-    transition:0.5s;
+    object-fit:cover;
 }
 
 .journey-image:hover img{
