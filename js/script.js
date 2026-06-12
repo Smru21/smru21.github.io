@@ -238,3 +238,33 @@ setInterval(() => {
     `${offset}px ${offset}px`;
 
 }, 50);
+
+/* =========================================
+   EXPANDABLE PROJECTS
+========================================= */
+
+const projectCards =
+document.querySelectorAll(".project-card.expandable");
+
+projectCards.forEach(card => {
+
+    const preview =
+    card.querySelector(".project-preview");
+
+    preview.addEventListener("click", () => {
+
+        projectCards.forEach(other => {
+
+            if(other !== card){
+
+                other.classList.remove("active");
+
+            }
+
+        });
+
+        card.classList.toggle("active");
+
+    });
+
+});
