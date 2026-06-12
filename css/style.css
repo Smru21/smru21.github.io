@@ -509,132 +509,93 @@ PROJECTS
 
 .project-card{
 
+    cursor:pointer;
+
     background:white;
 
-    border-radius:24px;
+    border-radius:20px;
 
     overflow:hidden;
 
     box-shadow:
-    0 15px 40px rgba(0,0,0,.08);
+    0 10px 30px rgba(0,0,0,0.08);
 
     transition:.4s;
 }
 
 .project-card:hover{
-    transform:translateY(-5px);
+
+    transform:translateY(-8px);
 }
 
-.project-preview{
-    cursor:pointer;
-}
-
-.project-preview img{
+.project-card img{
 
     width:100%;
-    height:280px;
+
+    height:220px;
 
     object-fit:cover;
 }
 
-.project-info{
-    padding:25px;
+.project-content{
+
+    padding:20px;
 }
 
-.project-info h3{
+.project-content h3{
+
     color:#355E3B;
+
     margin-bottom:10px;
 }
 
-.project-info p{
+.short-desc{
+
     color:#666;
 }
 
-.project-expanded{
+.project-details{
 
-    display:none;
+    max-height:0;
 
-    grid-template-columns:
-    1.2fr 1fr;
+    overflow:hidden;
 
-    gap:40px;
+    opacity:0;
 
-    padding:35px;
+    transition:
+    max-height .5s ease,
+    opacity .3s ease;
+
+    margin-top:0;
 }
 
-.project-card.active .project-expanded{
-    display:grid;
+.project-card.active .project-details{
+
+    max-height:500px;
+
+    opacity:1;
+
+    margin-top:20px;
 }
 
-.project-card.active .project-preview{
-    display:none;
-}
+.project-details p{
 
-.expanded-image img{
-
-    width:100%;
-    height:450px;
-
-    object-fit:contain;
-
-    border-radius:16px;
-}
-
-.expanded-content{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.expanded-content h3{
-
-    color:#355E3B;
-
-    font-size:2rem;
-
-    margin-bottom:15px;
-}
-
-.expanded-content p{
+    color:#555;
 
     line-height:1.8;
-
-    margin-bottom:20px;
 }
 
-.expanded-content ul{
+.project-details ul{
 
-    margin-bottom:25px;
+    margin-top:15px;
+
+    padding-left:20px;
 }
 
-.expanded-content li{
+.project-details li{
 
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
-
-.project-links{
-
-    display:flex;
-
-    gap:15px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-    .project-expanded{
-
-        grid-template-columns:1fr;
-    }
-
-    .expanded-image img{
-
-        height:300px;
-    }
-}
-
 /* =====================================
 GALLERY
 ===================================== */
