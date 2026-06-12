@@ -637,6 +637,10 @@ PROJECTS
     0 10px 30px rgba(0,0,0,0.08);
 
     transition:.4s;
+
+    opacity:1 !important;
+
+    transform:none !important;
 }
 
 .project-card:hover{
