@@ -240,28 +240,15 @@ setInterval(() => {
 }, 50);
 
 /* =========================================
-   EXPANDABLE PROJECTS
+   PROJECT EXPAND
 ========================================= */
 
 const projectCards =
-document.querySelectorAll(".project-card.expandable");
+document.querySelectorAll(".project-card");
 
 projectCards.forEach(card => {
 
-    const preview =
-    card.querySelector(".project-preview");
-
-    preview.addEventListener("click", () => {
-
-        projectCards.forEach(other => {
-
-            if(other !== card){
-
-                other.classList.remove("active");
-
-            }
-
-        });
+    card.addEventListener("click", () => {
 
         card.classList.toggle("active");
 
