@@ -418,7 +418,9 @@ projectOverlay.querySelector(".project-close");
 
 projectCards.forEach(card => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+
+        e.stopPropagation();
 
         const id = card.getAttribute("data-id");
 
