@@ -285,9 +285,12 @@ const projectData = {
             </p>
 
             <p>
-                This is placeholder text describing the design process,
-                challenges faced, and the impact of the system on daily
-                school operations. Replace with your own detailed writeup.
+                The system was developed from the ground up using an ESP32,
+                real-time clock module, touch interface and SD card storage.
+                Considerable attention was given to reliability, ease of use and
+                long-term deployment in real school environments. The project
+                combines embedded systems, hardware integration, user interface
+                design and practical problem solving into a single product.
             </p>
 
             <ul>
@@ -317,9 +320,9 @@ const projectData = {
             </p>
 
             <p>
-                Placeholder text — add details about the build process,
-                components used, voltage achieved, safety measures and
-                audience reactions during demonstrations.
+                Beyond the technical achievement, this project strengthened my
+                ability to communicate complex scientific ideas in a simple and
+                accessible manner and work under life threatening conditions. 
             </p>
 
             <ul>
@@ -347,9 +350,9 @@ const projectData = {
             </p>
 
             <p>
-                Placeholder text — describe the sensor setup, control
-                logic, enclosure design and real-world deployment
-                results here.
+                The project provided valuable experience in automation, sensor
+                integration and designing systems intended for real-world
+                everyday use.
             </p>
 
             <ul>
@@ -378,9 +381,9 @@ const projectData = {
             </p>
 
             <p>
-                Placeholder text — add details about wind data collected,
-                blade design iterations, generator selection and overall
-                research findings.
+                The experience strengthened my appreciation for sustainable
+                technologies and reinforced my desire to work on projects that
+                combine engineering with environmental impact.
             </p>
 
             <ul>
