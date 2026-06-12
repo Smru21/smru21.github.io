@@ -3,7 +3,7 @@
 ========================================= */
 
 const reveals = document.querySelectorAll(
-".journey-row, .project-card, .pillar-card, .gallery-grid img, .vision-content"
+".journey-row, .pillar-card, .gallery-grid img, .vision-content"
 );
 
 const revealObserver = new IntersectionObserver(
