@@ -239,13 +239,11 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
     width:100%;
 
-    padding:8px 8%;
+    height:80px;
 
-    background:rgba(248,246,239,0.95);
+    background:rgba(248,246,239,0.96);
 
-    backdrop-filter:blur(10px);
-
-    z-index:1000;
+    backdrop-filter:blur(8px);
 
     display:flex;
 
@@ -253,9 +251,12 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
     align-items:center;
 
-    transition:0.3s;
-}
+    padding:0 8%;
 
+    z-index:1000;
+
+    box-sizing:border-box;
+}
 /* =====================================
    LOGO
 ===================================== */
