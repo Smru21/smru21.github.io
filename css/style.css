@@ -239,9 +239,9 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
     width:100%;
 
-    height:72px;
+    height:70px;
 
-    background:rgba(248,246,239,0.96);
+    background:rgba(248,246,239,0.95);
 
     backdrop-filter:blur(10px);
 
@@ -251,7 +251,7 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
     align-items:center;
 
-    padding:0 6%;
+    padding:0 60px;
 
     z-index:1000;
 
@@ -274,8 +274,8 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
 .logo-container{
 
-    width:60px;
-    height:60px;
+    width:65px;
+    height:65px;
 
     display:flex;
 
@@ -284,21 +284,6 @@ DYNAMIC MOVING BACKGROUND SHAPES
     justify-content:center;
 }
 
-.logo-container img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    filter:
-    drop-shadow(
-        0 6px 12px rgba(0,0,0,0.15)
-    );
-
-    animation:
-    logoFloat 4s ease-in-out infinite;
-}
 
 /* Floating effect */
 
@@ -317,26 +302,30 @@ DYNAMIC MOVING BACKGROUND SHAPES
     }
 }
 
-/* Rotate on hover */
+.logo-container img{
 
-.logo-container:hover img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(
+        0 6px 12px rgba(0,0,0,0.15)
+    );
 
     animation:
-    logoSpin 1.2s linear;
+    logoRotate 12s linear infinite;
 }
 
-@keyframes logoSpin{
+@keyframes logoRotate{
 
     from{
-
-        transform:
-        rotateY(0deg);
+        transform:rotate(0deg);
     }
 
     to{
-
-        transform:
-        rotateY(360deg);
+        transform:rotate(360deg);
     }
 }
 
@@ -377,43 +366,21 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
     font-weight:700;
 }
-/* =====================================
-   NAVIGATION LINKS
-===================================== */
 
 .nav-links{
+    list-style:none;
 
     display:flex;
-
-    gap:40px;
+    flex-direction:row;
 
     align-items:center;
+
+    gap:35px;
+
+    margin:0;
+    padding:0;
 }
 
-.nav-links a{
-
-    color:#2d3748;
-
-    text-decoration:none;
-
-    font-size:1rem;
-
-    font-weight:500;
-
-    transition:0.3s;
-}
-
-.nav-links a:hover{
-
-    color:#355E3B;
-}
-
-.nav-links a.active{
-
-    color:#355E3B;
-
-    font-weight:600;
-}
 /* =====================================
 HERO
 ===================================== */
