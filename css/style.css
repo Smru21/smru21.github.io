@@ -239,10 +239,9 @@ DYNAMIC MOVING BACKGROUND SHAPES
 
     width:100%;
 
-    padding:14px 8%;
+    padding:8px 8%;
 
-    background:
-    rgba(248,246,239,0.95);
+    background:rgba(248,246,239,0.95);
 
     backdrop-filter:blur(10px);
 
