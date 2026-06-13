@@ -305,7 +305,7 @@ DYNAMIC MOVING BACKGROUND SHAPES
     drop-shadow(0 8px 16px rgba(0,0,0,0.18));
 
     animation:
-    logoRotate3D 10s linear infinite;
+    logoRotate3D 15s linear infinite;
 }
 
 @keyframes logoRotate3D{
