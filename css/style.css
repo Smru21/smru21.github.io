@@ -227,7 +227,7 @@ DYNAMIC MOVING BACKGROUND SHAPES
 }
 
 /* =====================================
-NAVBAR
+   NAVBAR
 ===================================== */
 
 .navbar{
@@ -235,8 +235,18 @@ NAVBAR
     position:fixed;
 
     top:0;
+    left:0;
 
     width:100%;
+
+    padding:14px 8%;
+
+    background:
+    rgba(248,246,239,0.95);
+
+    backdrop-filter:blur(10px);
+
+    z-index:1000;
 
     display:flex;
 
@@ -244,50 +254,7 @@ NAVBAR
 
     align-items:center;
 
-    padding:18px 8%;
-
-    background:rgba(244,240,230,0.9);
-
-    backdrop-filter:blur(12px);
-
-    z-index:1000;
-
-    border-bottom:
-    1px solid rgba(0,0,0,0.05);
-}
-
-.logo{
-
-    font-size:1.3rem;
-
-    font-weight:700;
-
-    color:#355E3B;
-}
-
-.navbar ul{
-
-    display:flex;
-
-    gap:35px;
-
-    list-style:none;
-}
-
-.navbar a{
-
-    text-decoration:none;
-
-    color:#36454F;
-
-    font-weight:500;
-
-    transition:.3s;
-}
-
-.navbar a:hover{
-
-    color:#355E3B;
+    transition:0.3s;
 }
 
 /* =====================================
@@ -297,6 +264,7 @@ NAVBAR
 .logo{
 
     display:flex;
+
     align-items:center;
 
     text-decoration:none;
@@ -304,10 +272,16 @@ NAVBAR
 
 .logo-container{
 
-    width:200px;
-    height:200px;
+    width:90px;
+    height:90px;
 
     perspective:1000px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 }
 
 .logo-container img{
@@ -318,61 +292,89 @@ NAVBAR
     object-fit:contain;
 
     filter:
-    drop-shadow(0 8px 15px rgba(0,0,0,0.15));
+    drop-shadow(0 10px 20px rgba(0,0,0,0.12));
 
     animation:
-    logoRotate 12s linear infinite;
+    logoFloat 4s ease-in-out infinite;
 
-    transform-style:preserve-3d;
+    transition:0.4s;
 }
 
-@keyframes logoRotate{
+@keyframes logoFloat{
 
-    0%{
-
-        transform:
-        rotateY(0deg)
-        rotateX(5deg);
-    }
-
-    25%{
+    0%,100%{
 
         transform:
-        rotateY(90deg)
-        rotateX(0deg);
+        translateY(0px);
     }
 
     50%{
 
         transform:
-        rotateY(180deg)
-        rotateX(-5deg);
-    }
-
-    75%{
-
-        transform:
-        rotateY(270deg)
-        rotateX(0deg);
-    }
-
-    100%{
-
-        transform:
-        rotateY(360deg)
-        rotateX(5deg);
+        translateY(-4px);
     }
 
 }
 
 .logo-container:hover img{
 
-    animation-play-state:paused;
-
-    transform:
-    scale(1.08);
+    animation:
+    logoSpin 1.5s linear;
 }
 
+@keyframes logoSpin{
+
+    from{
+
+        transform:
+        rotateY(0deg);
+    }
+
+    to{
+
+        transform:
+        rotateY(360deg);
+    }
+
+}
+
+/* =====================================
+   NAVIGATION LINKS
+===================================== */
+
+.nav-links{
+
+    display:flex;
+
+    gap:40px;
+
+    align-items:center;
+}
+
+.nav-links a{
+
+    color:#2d3748;
+
+    text-decoration:none;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+
+    color:#355E3B;
+}
+
+.nav-links a.active{
+
+    color:#355E3B;
+
+    font-weight:600;
+}
 /* =====================================
 HERO
 ===================================== */
